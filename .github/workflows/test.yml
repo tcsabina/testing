@@ -8,8 +8,8 @@ jobs:
       uses: actions/checkout@v2
     - name: Set date
       run: |
+        timedatectl set-timezone Europe/Amsterdam
         echo "DATE=$(date "+%Y%m%d-%H%M%S")" >> $GITHUB_ENV
-        timedatectl
     - name: Deploy
       run: |
         touch test.txt
