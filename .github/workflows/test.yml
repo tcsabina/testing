@@ -11,8 +11,6 @@ jobs:
 #        DATE: $(date "+%Y%m%d-%H%M%S")
       run: |
         touch test.txt
-        echo "::set-output name=date::$(date '+%Y%m%d-%H%M%S')"
         echo "DATE=output-$(date "+%Y.%m.%d-%H.%M.%S")" >> $GITHUB_ENV
-        cp test.txt new-${{ steps.Deploy.outputs.date }}.txt
-        cp test.txt new2-${{ env.DATE }}.txt
+        cp test.txt ${{ env.DATE }}.txt
         ls -la
