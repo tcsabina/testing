@@ -6,11 +6,15 @@ jobs:
     steps:
     - name: Check out code
       uses: actions/checkout@v2
+    - name: Set date
+      run: |
+        echo "DATE=output-$(date "+%Y.%m.%d-%H.%M.%S")" >> $GITHUB_ENV
     - name: Deploy
 #      env:
 #        DATE: $(date "+%Y%m%d-%H%M%S")
       run: |
         touch test.txt
-        echo "DATE=output-$(date "+%Y.%m.%d-%H.%M.%S")" >> $GITHUB_ENV
         cp test.txt ${{ env.DATE }}.txt
+        cp test.txt $DATE.txt
+        echo $DATE
         ls -la
