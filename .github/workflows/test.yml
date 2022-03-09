@@ -7,7 +7,7 @@ jobs:
     - name: Check out code
       uses: actions/checkout@v2
     - name: Deploy
-      env:
+#      env:
 #        DATE: $(date "+%Y%m%d-%H%M%S")
       run: |
         touch test.txt
