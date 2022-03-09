@@ -1,0 +1,16 @@
+name: test sftp
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v2
+    - name: Deploy
+      env:
+        SSH_AUTH_SOCK: /tmp/ssh_agent.sock
+        DATE: $(date "+%Y%m%d-%H%M%S")
+      run: |
+        touch test.txt
+        cp test.txt new-$DATE.txt
+        ls -la
