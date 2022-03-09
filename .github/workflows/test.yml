@@ -9,6 +9,7 @@ jobs:
     - name: Set date
       run: |
         echo "DATE=$(date "+%Y%m%d-%H%M%S")" >> $GITHUB_ENV
+        timedatectl
     - name: Deploy
       run: |
         touch test.txt
