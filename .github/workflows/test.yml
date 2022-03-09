@@ -8,9 +8,11 @@ jobs:
       uses: actions/checkout@v2
     - name: Deploy
       env:
-        SSH_AUTH_SOCK: /tmp/ssh_agent.sock
-        DATE: $(date "+%Y%m%d-%H%M%S")
+#        DATE: $(date "+%Y%m%d-%H%M%S")
       run: |
         touch test.txt
-        cp test.txt new-$DATE.txt
+        echo "::set-output name=date::$(date '+%Y%m%d-%H%M%S')"
+        echo "DATE=output-$(date "+%Y.%m.%d-%H.%M.%S")" >> $GITHUB_ENV
+        cp test.txt new-${{steps.Deploy.outputs.date}}.txt
+        cp test.txt new-${{env.DATE}}.txt
         ls -la
