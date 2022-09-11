@@ -2,16 +2,10 @@ name: test sftp
 on: [push, pull_request]
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
     - name: Check out code
       uses: actions/checkout@v2
-    - name: Set date
-      run: |
-        sudo timedatectl set-timezone Europe/Amsterdam
-        echo "DATE=$(date "+%Y%m%d-%H%M%S")" >> $GITHUB_ENV
     - name: Deploy
       run: |
-        touch test.txt
-        cp test.txt ${{ env.DATE }}.txt
-        ls -la
+        msvc
