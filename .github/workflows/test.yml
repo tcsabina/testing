@@ -6,6 +6,12 @@ jobs:
     steps:
     - name: Check out code
       uses: actions/checkout@v2
-    - name: Deploy
+    - name: Check clang version
       run: |
-        make
+        clang --version
+    - name: Bring on msys
+      uses: msys2/setup-msys2@v2
+    - shell: msys2 {0}
+      run: |
+        clang --version
+        
