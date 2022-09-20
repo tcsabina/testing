@@ -8,4 +8,5 @@ jobs:
       uses: actions/checkout@v2
     - name: Random command
       run: |
+        Set-Service ssh-agent -StartupType Manual
         ssh-agent
