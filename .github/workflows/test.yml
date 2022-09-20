@@ -10,3 +10,5 @@ jobs:
       run: |
         Set-Service ssh-agent -StartupType Manual
         ssh-agent
+        date
+        sftp
