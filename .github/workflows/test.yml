@@ -6,6 +6,6 @@ jobs:
     steps:
     - name: Check out code
       uses: actions/checkout@v2
-    - name: Check clang version
+    - name: Random command
       run: |
-        clang-cl --version
+        md5sum
